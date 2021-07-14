@@ -25,7 +25,7 @@ router.get('/:id', checkCarId, (req, res)=>{
 router.post('/', checkCarPayload, checkVinNumberValid, checkVinNumberUnique, async (req, res, next)=>{
     try{
         const car = await Cars.create(req.body);
-        // res.json({...car, id:car.car_id})
+        // res.json({...car, id:car.car_id})//initially created idas car_id and the test case 6 was failing. To pass the test case iwrote this and then changed the migration file car_id to id.
         res.json(car)
     }
     catch(err){
