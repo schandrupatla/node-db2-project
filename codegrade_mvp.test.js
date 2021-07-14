@@ -93,7 +93,7 @@ describe('server.js', () => {
       expect(res1.body).toMatchObject({ id: 1, ...cars[0] })
       expect(res2.body).toMatchObject({ id: 2, ...cars[1] })
       expect(res3.body).toMatchObject({ id: 3, ...cars[2] })
-    }, 500)
+    }, 1500)
     test('[7] responds with a 400 and proper error on missing vin', async () => {
       const { vin, ...badCar } = cars[0] // eslint-disable-line
       const res = await request(server).post('/api/cars').send(badCar)
